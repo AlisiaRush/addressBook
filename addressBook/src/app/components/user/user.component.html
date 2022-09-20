@@ -1,3 +1,27 @@
-<div class="container mt-5">
-  <app-table></app-table>
-</div>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of user">
+      <td>{{ user?.login?.uuid }}</td>
+      <td>{{ user?.name?.first }}</td>
+      <td>{{ user?.name?.last }}</td>
+      <td>{{ user?.phone }}</td>
+      <td>
+        <a
+          [routerLink]="['user-details/' + user.login?.uuid]"
+          class="btn btn-lg btn-outline-primary"
+        >
+          Details
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
