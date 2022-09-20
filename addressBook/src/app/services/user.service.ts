@@ -13,6 +13,9 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+  public arrUsers: any[] = [];
+
+  // GET method for API results
   public getUser(): Observable<User> {
     return this.http.get<User>(`${this.URL}?seed=nuvalence&results=10`);
   }
